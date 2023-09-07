@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--     <div>
+        <label for="txtPromesaResolve">Promesa resuelta</label>
+        <input type="text" id="txtPromesaResolve">
+        <br>
+        <label for="txtPromesaReject">Promesa rechazada</label>
+        <input type="text" id="txtPromesaReject">
+    </div>
+
+    <script>
+        const txtPromesaResolve = document.getElementById("txtPromesaResolve");
+        const txtPromesaReject = document.getElementById("txtPromesaReject")
+        let promesa = new Promise(function (resolve, reject) {
+              setTimeout(() => resolve("Promesa correcta"), 3000);
+            //setTimeout(() => reject ("Promesa correcta"), 3000);
+        });
+        promesa.then(
+            result => txtPromesaResolve.value = result,
+            error => alert("Error")
+        );
+    </script> -->
+
+
+    <div>
+        <label for="txtPromesaResolve">Promesa Resuelta</label>
+        <input type="text" id="txtPromesaResolve">
+        <br>
+        <label for="txtPromesaReject">Promesa Rechazada</label>
+        <input type="text" id="txtPromesaReject">
+        <br>
+        <button id="btnDividir">Dividir</button>
+    </div>
+    
+    <script>
+        const txtPromesaResolve = document.getElementById("txtPromesaResolve");
+        const txtPromesaReject = document.getElementById("txtPromesaReject");
+        const btnDividir = document.getElementById("btnDividir");
+    
+        let promesaDividir;
+    
+        function dividir() {
+            promesaDividir = new Promise((resolve, reject) => {
+                const numerador = parseFloat(prompt("Ingrese el numerador:"));
+                const denominador = parseFloat(prompt("Ingrese el denominador:"));
+    
+                if (denominador === 0) {
+                    setTimeout(() => reject("Promesa incorrecta"), 3000);
+                } else {
+                    setTimeout(() => resolve("Promesa correcta"), 3000);
+                }
+            });
+    
+            promesaDividir
+                .then((resultado) => {
+                    txtPromesaResolve.value = resultado;
+                })
+                .catch((error) => {
+                    txtPromesaReject.value = error;
+                });
+        }
+    
+        btnDividir.addEventListener("click", dividir);
+    </script>
+    
+</body>
+
+</html>
